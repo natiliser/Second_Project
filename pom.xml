@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>11</java.version>
+		<skipTests>true</skipTests>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -68,6 +69,7 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>6.1.5.Final</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>

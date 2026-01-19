@@ -28,7 +28,7 @@ public class TaskController {
 
     @PostMapping
     public ResponseEntity<?> insertTask(@RequestBody TaskIn taskIn) {
-        Task task = taskIn.getTask(taskIn);
+        Task task = taskIn.toEntity(taskIn);
         task = taskService.save(task);
         return new ResponseEntity<>(task, HttpStatus.OK);
     }
@@ -36,7 +36,7 @@ public class TaskController {
     @PutMapping(value = "/{id}")
     public ResponseEntity<?> updateTask(@PathVariable Long id, @RequestBody TaskIn taskIn) {
         Optional<Task> dbTask = taskService.findById(id);
-        taskIn.setTask(dbTask.get());
+        taskIn.updateEntity(dbTask.get());
         Task updatedTask = taskService.save(dbTask.get());
         return new ResponseEntity<>(updatedTask, HttpStatus.OK);
     }
